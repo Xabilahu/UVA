@@ -6,7 +6,7 @@ public class Main {
 
     static Scanner in;
 
-    public void run() {
+    private void run() {
         int nTest = in.nextInt();
         for (int i = 1; i <= nTest; i++) {
             int s = in.nextInt();
