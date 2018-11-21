@@ -71,12 +71,18 @@ public class Main {
 
         boolean added = false;
 
-        for (int key : queue.keySet()) {//Get every single queue checking if same team
-            if (key == teams.get(x)) {
-                added = true;
-                queue.get(key).offer(x);
-            }
-        }
+        try {
+            queue.get(teams.get(x)).offer(x);
+            added = true;
+        } catch (NullPointerException e) {}
+
+//        for (int key : queue.keySet()) {//Get every single queue checking if same team
+//            if (key == teams.get(x)) {
+//                added = true;
+//                queue.get(key).offer(x);
+//            }
+//        } 10 ms more slow
+
         if (!added) { //Not found anyone belonging to his team, enqueue new Queue
             Queue<Integer> newQueue = new LinkedList<>();
             newQueue.offer(x);
