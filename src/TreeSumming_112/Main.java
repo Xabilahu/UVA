@@ -48,7 +48,6 @@ public class Main{
                     firstInputLine = true;
                 } else continue; //If not correct, tree follows on next line
             }
-            System.out.println();
         } catch (Exception e) {}
 
     }
@@ -94,8 +93,7 @@ public class Main{
     private boolean treeSums(BTN actualNode, int sum) {
         if (actualNode == null) return false;
         else {
-            if (this.sumTree(actualNode.left, sum, actualNode.data) == sum) return true;
-            else if (this.sumTree(actualNode.right, sum, actualNode.data) == sum) return true;
+            if (this.sumTree(actualNode, sum, 0) == sum) return true;
             else return false;
         }
     }
@@ -109,7 +107,7 @@ public class Main{
                 if (leftEval == objectiveSum) return leftEval;
             } 
             if (actualNode.right != null) return this.sumTree(actualNode.right, objectiveSum, actualSum + actualNode.data);
-            return actualSum;
+            return Integer.MIN_VALUE;
         }
     }
 
