@@ -92,3 +92,4 @@ fabric.properties
 .idea
 UVA.iml
 .vscode
+src/*/Tests*
